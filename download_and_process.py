@@ -4,6 +4,7 @@ import urllib.request
 from collections import namedtuple
 from pathlib import Path
 import pandas as pd
+import numpy as np
 import xlrd
 
 from config import BASE_URL, FILE_PREFIX
@@ -27,7 +28,13 @@ def average(data, is_country=False):
     else:
         data['name'] = name[1]
 
-    return data.groupby(['name', 'year'])['unemployment'].mean().reset_index(name='avg')
+    result = data.groupby(['name', 'year'])['unemployment'].mean().reset_index(name='avg')
+    result = result.round({"avg":2}) 
+#    result.style.format({
+#    'avg': '{:,.1f}'.format
+#    })
+
+    return result
 
 
 def build_data_frame(data_files):
