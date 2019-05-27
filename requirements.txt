@@ -1,3 +1,4 @@
 pandas
 xlrd
 requests
+jinja2
