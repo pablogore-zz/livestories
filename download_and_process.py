@@ -79,7 +79,7 @@ def build_unemployment_tuple(row):
 
 if __name__ == '__main__':
     current_year = datetime.datetime.today().year
-    year_list = range(2018, current_year)
+    year_list = range(1990, current_year)
 
     files = ["{0}/{1}{2}.xlsx".format(BASE_URL, FILE_PREFIX, str(year)[-2:]) for year in year_list]
 
